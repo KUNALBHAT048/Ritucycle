@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class CalendarWidget extends StatelessWidget {
+class CalendarWidget extends StatefulWidget {
+  @override
+  _CalendarWidgetState createState() => _CalendarWidgetState();
+}
+
+class _CalendarWidgetState extends State<CalendarWidget> {
+  CalendarFormat _calendarFormat = CalendarFormat.month;
+  DateTime _selectedDay = DateTime.now();
+  DateTime _focusedDay = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,9 +18,26 @@ class CalendarWidget extends StatelessWidget {
       child: TableCalendar(
         firstDay: DateTime.utc(2010, 10, 16),
         lastDay: DateTime.utc(2030, 3, 14),
-        focusedDay: DateTime.now(),
+        focusedDay: _focusedDay,
+        selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+        calendarFormat: _calendarFormat,
+        availableCalendarFormats: const {
+          CalendarFormat.month: 'Month',
+          CalendarFormat.week: 'Week',
+        },
+        onDaySelected: (selectedDay, focusedDay) {
+          setState(() {
+            _selectedDay = selectedDay;
+            _focusedDay = focusedDay;
+          });
+        },
+        onFormatChanged: (format) {
+          setState(() {
+            _calendarFormat = format;
+          });
+        },
         headerStyle: HeaderStyle(
-          formatButtonVisible: false,
+          formatButtonVisible: true,
           titleCentered: true,
         ),
         calendarStyle: CalendarStyle(
@@ -28,3 +54,4 @@ class CalendarWidget extends StatelessWidget {
     );
   }
 }
+

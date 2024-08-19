@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import '../components/calendar_widget.dart';
 import '../widgets/period_card.dart';
@@ -7,6 +8,10 @@ import '../widgets/chat_card.dart';
 import '../widgets/routine_card.dart';
 
 class HomeScreen extends StatelessWidget {
+  final List<CameraDescription> cameras;
+
+  HomeScreen({required this.cameras});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,19 +21,17 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Calendar section with a little padding
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CalendarWidget(),
           ),
-          // Expanded section to avoid overflow issues
           Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   PeriodCard(),
-                  SymptomCard(),
+                  SymptomCard(cameras: cameras), // Pass cameras here
                   TutorialCard(),
                   ChatCard(),
                   RoutineCard(),

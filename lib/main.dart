@@ -10,6 +10,7 @@ class RituCycleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'RituCycle',
       theme: AppTheme.lightTheme,
       home: SplashScreen(),
