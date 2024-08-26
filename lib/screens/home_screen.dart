@@ -8,6 +8,8 @@ import '../widgets/chat_card.dart';
 import '../widgets/routine_card.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String id = 'home_screen'; // Add this line
+
   final List<CameraDescription> cameras;
 
   HomeScreen({required this.cameras});

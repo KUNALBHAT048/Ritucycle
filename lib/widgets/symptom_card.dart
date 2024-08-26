@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:sdp/main.dart';
 import 'package:sdp/screens/yoga_option_screen.dart';
 
 class SymptomCard extends StatelessWidget {
@@ -14,7 +15,7 @@ class SymptomCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => YogaOptionScreen(),
+            builder: (context) => YogaOptionScreen(cameras: cameras),
           ),
         );
       },

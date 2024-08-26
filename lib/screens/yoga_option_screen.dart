@@ -1,7 +1,12 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'yoga_list_screen.dart';
 
 class YogaOptionScreen extends StatelessWidget {
+  final List<CameraDescription> cameras;
+
+  YogaOptionScreen({required this.cameras});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +58,7 @@ class YogaOptionScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => YogaListScreen(goal: title),
+              builder: (context) => YogaListScreen(goal: title, cameras: cameras),
             ),
           );
         },

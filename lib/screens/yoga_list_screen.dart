@@ -1,13 +1,15 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'pose.dart';
 
 class YogaListScreen extends StatelessWidget {
+  final List<CameraDescription> cameras; // Make this field final
   final String goal;
-  static const platform = MethodChannel('com.yourapp.yoga');
+  // static const platform = MethodChannel('com.yourapp.yoga');
 
-  YogaListScreen({required this.goal});
+  // Corrected constructor syntax
+  YogaListScreen({required this.goal, required this.cameras});
 
   @override
   Widget build(BuildContext context) {
@@ -145,11 +147,10 @@ class YogaListScreen extends StatelessWidget {
             TextButton(
               child: Text('Start Detection'),
               onPressed: () {
-                Navigator.of(context).pop();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PoseDetectionScreen(poseName: pose['name']!),
+                    builder: (context) => PoseDetectionScreen(imagePath: pose['image']!),
                   ),
                 );
               },
@@ -167,15 +168,6 @@ class YogaListScreen extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Camera permission is required to start pose detection.')),
       );
-    }
-  }
-
-  void _runPythonScript(String poseName) async {
-    try {
-      final String result = await platform.invokeMethod('runYogaPoseDetection', {'poseName': poseName});
-      print(result);
-    } on PlatformException catch (e) {
-      print("Failed to run Python script: '${e.message}'.");
     }
   }
 }
