@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "386334180602",
+    "project_id": "ritucycle-70b14",
+    "storage_bucket": "ritucycle-70b14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386334180602:android:2a7a099b31de94cd643543",
+        "android_client_info": {
+          "package_name": "com.ritucycle.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7bUeuQ5Rf0aKx30In9aIUdMVv6BsWnKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
