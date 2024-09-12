@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:math';
 import 'package:sdp/screens/home_screen.dart';
+import 'screens/chat_screen.dart';
 import 'package:sdp/screens/yoga_list_screen.dart';
 import 'package:sdp/services/routine_tracker.dart';
 import 'screens/splash_screen.dart';
@@ -88,6 +89,7 @@ class RituCycleApp extends StatelessWidget {
       home: SplashScreen(),
       routes: {
         HomeScreen.id: (context) => HomeScreen(cameras: cameras),
+        ChatScreen.id: (context) => ChatScreen(),
         '/routine_tracker': (context) => RoutineTracker(),
       },
     );
