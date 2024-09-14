@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:sdp/screens/Chat_Screen.dart';
+=======
+import 'package:flutter/cupertino.dart';
+import '../screens/chat_screen.dart';  // Import the chat screen
+>>>>>>> f9ddff9aae20f2b08819da5b6200c645d1b7557e
 
 class ChatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+<<<<<<< HEAD
         // Navigate to Chat_Screen when card is tapped
         Navigator.push(
           context,
@@ -14,6 +20,12 @@ class ChatCard extends StatelessWidget {
       },
       child: Container(
         width: 200, // Adjust width as needed
+=======
+        Navigator.pushNamed(context, ChatScreen.id);  // Navigate to chat screen
+      },
+      child: Container(
+        width: 200,
+>>>>>>> f9ddff9aae20f2b08819da5b6200c645d1b7557e
         margin: EdgeInsets.all(8.0),
         padding: EdgeInsets.all(16.0),
         decoration: BoxDecoration(
