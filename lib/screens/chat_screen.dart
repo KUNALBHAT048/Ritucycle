@@ -22,7 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
     super.initState();
 
     // Initialize the Socket.IO connection
-    _socket = IO.io('http://localhost:3000', <String, dynamic>{
+    _socket = IO.io('http://192.168.1.14:3000', <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': false,
     });
